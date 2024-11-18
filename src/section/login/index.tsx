@@ -69,7 +69,8 @@ const Login = () => {
         }}
       >
         <LoginFormPage
-          backgroundVideoUrl="https://gw.alipayobjects.com/v/huamei_gcee1x/afts/video/jXRBRK_VAwoAAAAAAAAAAAAAK4eUAQBr"
+          //backgroundVideoUrl="https://gw.alipayobjects.com/v/huamei_gcee1x/afts/video/jXRBRK_VAwoAAAAAAAAAAAAAK4eUAQBr"
+          backgroundImageUrl="https://www.aviko.co.uk/_next/image?url=https%3A%2F%2Faviko-eu.s3.eu-west-2.amazonaws.com%2Funited_kingdom%2F2022-07%2Fdelivery%2520bike.jpg&w=1920&q=100"
           logo="/logo.png"
           title="Gestor de entregas"
           subTitle=" "
