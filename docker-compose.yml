@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-app-dev
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: bun run dev
+    networks:
+      - app_shared_network
+  app-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-app-prod
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    command: bun run start
+    networks:
+      - app_shared_network
+
+networks:
+  app_shared_network:
+    external: true
