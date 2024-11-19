@@ -173,7 +173,7 @@ const NewAttendance = () => {
             ]}
           >
             <CurrencyInput
-              className="ant-input css-dev-only-do-not-override-49qm ant-input-outlined"
+              className="ant-input css-49qm ant-input-outlined"
               prefix="R$ "
               value={value}
               placeholder={"Digite a taxa de entrega"}

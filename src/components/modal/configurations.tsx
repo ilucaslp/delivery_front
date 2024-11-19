@@ -87,7 +87,7 @@ const ConfigurationsModal = () => {
               placeholder={"Digite a taxa do entregador"}
               decimalSeparator=","
               allowNegative={false}
-              className="ant-input css-dev-only-do-not-override-49qm"
+              className="ant-input css-49qm ant-input-outlined"
               onValueChange={(values) => {
                 setValue(values.floatValue);
               }}
