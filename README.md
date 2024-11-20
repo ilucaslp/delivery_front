@@ -11,8 +11,8 @@
 
 ## Diagrama de Classe
 <div align="center">
- <img src="https://github.com/ilucaslp/delivery_front/assets/Diagrama banco de dados 1.jpg"/>
- <img src="https://github.com/ilucaslp/delivery_front/assets/Diagrama banco de dados 2.jpg"/>
+ <img src="https://github.com/ilucaslp/delivery_front/blob/main/assets/diagramas/Diagrama%20banco%20de%20dados%201.jpg?raw=true"/>
+ <img src="https://github.com/ilucaslp/delivery_front/blob/main/assets/diagramas/Diagrama%20banco%20de%20dados2.jpg?raw=true"/>
 </div>
 
 ## Funcionalidades
