@@ -88,12 +88,13 @@ export const useDeliveryStore = create(
           loading: false,
         });
       },
-      getDeliveryManSelect: async () => {
+       getDeliveryManSelect: async () => {
         let deliveries = get().deliveries;
         if (deliveries.length === 0) {
           deliveries = await get().loadDeliveries();
         }
-        return deliveries.map((deliveryMan) => ({
+
+        return (deliveries ?? []).map((deliveryMan) => ({
           label: deliveryMan.name,
           value: deliveryMan.id,
         }));
