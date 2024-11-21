@@ -90,27 +90,42 @@ export const useDeliveryStore = create(
       },
       getDeliveryManSelect: async () => {
         let deliveries = get().deliveries;
+    
+        // Garante que deliveries é um array válido
         if (!Array.isArray(deliveries) || deliveries.length === 0) {
             deliveries = await get().loadDeliveries();
         }
-        return deliveries.map((deliveryMan) => ({
-            label: deliveryMan.name,
-            value: deliveryMan.id,
-        }));
+    
+        // Retorna um array de objetos no formato esperado
+        return Array.isArray(deliveries)
+            ? deliveries.map((deliveryMan) => ({
+                  label: deliveryMan.name,
+                  value: deliveryMan.id,
+              }))
+            : [];
     },    
-      loadDeliveries: async () => {
-        const deliveries = get().deliveries;
-        if (deliveries.length === 0) {
+    loadDeliveries: async () => {
+      const deliveries = get().deliveries;
+  
+      if (deliveries.length === 0) {
           set({ ...get(), loading: true });
-          const { data: deliveryData } = await fetch(
-            "/api/deliveries"
-          ).then((resp) => resp.json());
-          set({ ...get(), deliveries: deliveryData, loading: false });
-
-          return deliveryData;
-        }
-        return deliveries;
-      },
+          const response = await fetch("/api/deliveries");
+          const { data: deliveryData } = await response.json();
+  
+          // Verifica se deliveryData é um array válido
+          const validDeliveries = Array.isArray(deliveryData) ? deliveryData : [];
+  
+          set({
+              ...get(),
+              deliveries: validDeliveries,
+              loading: false,
+          });
+  
+          return validDeliveries;
+      }
+  
+      return deliveries;
+  },  
     }),
     {
       name: "delivery-storage",
