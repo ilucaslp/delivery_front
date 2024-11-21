@@ -88,17 +88,16 @@ export const useDeliveryStore = create(
           loading: false,
         });
       },
-       getDeliveryManSelect: async () => {
+      getDeliveryManSelect: async () => {
         let deliveries = get().deliveries;
-        if (deliveries.length === 0) {
-          deliveries = await get().loadDeliveries();
+        if (!Array.isArray(deliveries) || deliveries.length === 0) {
+            deliveries = await get().loadDeliveries();
         }
-
-        return (deliveries ?? []).map((deliveryMan) => ({
-          label: deliveryMan.name,
-          value: deliveryMan.id,
+        return deliveries.map((deliveryMan) => ({
+            label: deliveryMan.name,
+            value: deliveryMan.id,
         }));
-      },
+    },    
       loadDeliveries: async () => {
         const deliveries = get().deliveries;
         if (deliveries.length === 0) {
